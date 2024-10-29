@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Event</title>
+</head>
+<body>
+<form th:action="@{/events/create}" method="post">
+  <label for="NombreAsignatura">nombre de la asignatura:</label>
+  <input type="text" id="NombreAsignatura" name="NombreAsignatura" required>
+  <br>
+
+  <label for="Descripcion">Descripcion de la asignatura:</label>
+  <input type="text" id="Descripcion" name="Descripcion" required>
+  <br>
+
+  <label for="Salon">Salon:</label>
+  <input type="number" id="Salon" name="Salon" required>
+  <br>
+
+  <label for="Horario">Horario de la asignatura:</label>
+  <input type="time" id="Horario" name="Horario" required>
+  <br>
+
+  <label for="docenteEncargadoId">Lista de docentes:</label>
+  <select id="docenteEncargadoId" name="docenteEncargadoId" required>
+    <option th:each="docente : ${docentes}" th:value="${docente.id}" th:text="${docente.docente}">
+    </option>
+  </select>
+
+
+
+
+  <button type="submit">Crear Evento</button>
+  <a href="/events">Cancelar</a>
+</form>
+
+</body>
+</html>
